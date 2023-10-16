@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/buynow', function () {
-    return view('buynow');
-});
-Route::get('/addproduct', function () {
-    return view('addproduct');
-});
+Route::get('/', [ViewController::class,'index']);
+Route::get('/login', [ViewController::class,'login']);
+Route::get('/contact',[ViewController::class,'contact']);
+Route::get('/buynow',[ViewController::class,'buynow']);
+Route::get('/addproduct', [ViewController::class,'addproduct']);
+
+Route::post('/postRegistration',[AuthController::class,'postRegistration'])->name('post.registration');
