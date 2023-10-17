@@ -16,9 +16,11 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', [ViewController::class,'index']);
-Route::get('/login', [ViewController::class,'login']);
+Route::get('/login', [ViewController::class,'login'])->name('login');
 Route::get('/contact',[ViewController::class,'contact']);
-Route::get('/buynow',[ViewController::class,'buynow']);
-Route::get('/addproduct', [ViewController::class,'addproduct']);
+Route::get('/buynow/{id}',[ViewController::class,'buynow']);
+Route::get('/addproduct/{id}', [ViewController::class,'addproduct']);
 
-Route::post('/postRegistration',[AuthController::class,'postRegistration'])->name('post.registration');
+Route::post('/postRegistration',[AuthController::class,'postRegistration'])->name('signup.data');
+Route::post('/postLogin',[AuthController::class,'postLogin'])->name('login.data');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');

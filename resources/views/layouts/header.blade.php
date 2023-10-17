@@ -14,8 +14,11 @@
 					<p>THE BIGGEST CHOICE OF THE WEB</p>
 				</div>
 				<div class="btn">
-					<a href="login.php?"><input type="button" name="" value="Log in"></a>
-					<!-- <a href="login.php?log=1"><input type="button" name="" value="Logout"></a> -->
+					@if(!Auth::guard('signup')->check())
+						<a href="{{ route('login') }}"><input type="button" name="" value="Log in"></a>
+					@else
+						<a href="{{ route('logout') }}"><input type="button" name="" value="Log out"></a> 
+					@endif
 				</div>
 			</div>
 		</div>

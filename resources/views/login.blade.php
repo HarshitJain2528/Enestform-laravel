@@ -5,19 +5,20 @@
 			<div class="login">
 				<p>Login Here</p>
 				<div  class="user-info">
-					<form method="post">
+					<form method="post" action="{{Route('login.data')}}">
+						{{ csrf_field() }}
 						<table class="login-1">
 							<tr class="inpt">
 								<td><span>Username</span></td>
-								<td><input type="text" name="nu"></td>
+								<td><input type="text" name="fullname"></td>
 							</tr><br>
 							<tr class="inpt">
 								<td ><span>Password</span></td>
-								<td><input type="password" name="wp"></td>
+								<td><input type="password" name="password"></td>
 							</tr>
 							<tr class="logn-btn" >
 								<td></td>
-								<td><input class="log" type="submit" name="login" value="Login"/></td>
+								<td><input class="log" type="submit" name="save" value="Login"/></td>
 							</tr>
 						</table>
 					</form>
@@ -29,7 +30,7 @@
 		<div class="sign">
 			<p>New to Enest? <a href=""> Sign up</a></p>
 			<div  class="user-info">
-				<form method="post" action="{{Route('post.registration')}}">
+				<form method="post" action="{{Route('signup.data')}}">
 					{{ csrf_field() }}
 					<table class="login-1">
 						<tr class="inpt-1">

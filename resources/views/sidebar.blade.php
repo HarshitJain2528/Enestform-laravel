@@ -4,8 +4,8 @@
     </div>
     <div class="items">
         <ul>
-            @foreach ($category as $r)
-                <li>{{$r->categoryname}}</li>  
+            @foreach ($allCategories as $r)
+                <a href="{{url('buynow/'.$r->id)}}"><li>{{$r->categoryname}}</li></a>   
             @endforeach
         </ul>
     </div>

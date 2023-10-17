@@ -4,7 +4,9 @@
 	@include('sidebar')
 	<div class="contact">
 		<div class="contact-us">
-			<p>{{--categoryname--}}</p>
+			@foreach($category as $cat) 
+				<p>{{$cat->categoryname}}</p> 
+			@endforeach
 		</div>
 		<div class="product-info" id="product">
 			<span>Sort by:</span>
@@ -24,34 +26,35 @@
 				<input class="nxt" type="submit" name="" value="Next">
 			</div>
 		</div>	
+		@foreach ($products as $product)
+		
+			{{ csrf_field() }}	
 			<div class="dish-info">
-			<div class="machine-pic">
-				<div class="img">
-					<img src="uploadimages/" />
+				<div class="machine-pic">
+					<div class="img">
+						<img src="uploadimages/" />
+					</div>
+					<div class="stock">
+						<p>In Stock:</p>
+					</div>
 				</div>
-				<div class="stock">
-					<p>In Stock:</p>
+				<div class="machine-info">
+					<div class="washer">
+						<p>{{$product->pname}}</p>
+					</div>
+					<div class="model-info">
+						<span>Model:{{$product->pname}}</span>
+						<p>Description:{{$product->pdesc}}</p>
+					</div>
+					<div class="price">
+						<span>{{$product->pprice}}</span>
+					</div>
+					<div class="checkout">
+						<a href="{{url('addproduct/'.$product->id)}}" target="_blank"><input type="button" value="BUY NOW" name="bn"/></a>
+					</div>
+									
 				</div>
 			</div>
-			<div class="machine-info">
-				<div class="washer">
-					<p>{{--pname--}}</p>
-				</div>
-				<div class="model-info">
-					<span>Model:</span>
-					<p>Description:</p>
-				</div>
-				<div class="price">
-					<span></span>
-				</div>
-				<div class="checkout">
-					<a href="addproduct.php" target="_blank"><input type="button" value="BUY NOW" name="bn"/></a>
-				</div>
-				
-				{{-- <div class="checkout">
-					<a href="login.php" target="_blank"><input type="button" value="LOGIN FIRST" name="bn"/></a>
-				</div> --}}
-								
-			</div>
-		</div>
+		@endforeach
+			
 @endsection
