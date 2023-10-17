@@ -35,7 +35,7 @@
 						<img src="uploadimages/" />
 					</div>
 					<div class="stock">
-						<p>In Stock:</p>
+						<p>In Stock: {{$product->pstock}}</p>
 					</div>
 				</div>
 				<div class="machine-info">
@@ -47,10 +47,14 @@
 						<p>Description:{{$product->pdesc}}</p>
 					</div>
 					<div class="price">
-						<span>{{$product->pprice}}</span>
+						<span>Rs. {{$product->pprice}}</span>
 					</div>
 					<div class="checkout">
-						<a href="{{url('addproduct/'.$product->id)}}" target="_blank"><input type="button" value="BUY NOW" name="bn"/></a>
+						@if(!Auth::guard('signup')->check())
+							<a href="{{Route('login')}}"><input type="button" value="Login First" name="login_first"/></a>
+						@else
+							<a href="{{url('addproduct/'.$product->id)}}"><input type="button" value="BUY NOW" name="bn"/></a>
+						@endif
 					</div>
 									
 				</div>

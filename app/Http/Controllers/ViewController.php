@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UseCategory;
 use App\Models\UseProduct;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -29,7 +31,27 @@ class ViewController extends Controller
     
     public function addproduct(Request $request,$id){
         $allCategories=UseCategory::all();
-        $product=UseProduct::where('id',$id)->get();
-        return view('addproduct',compact('allCategories','product'));
+        $products=UseProduct::where('id',$id)->get();
+        return view('addproduct',compact('allCategories','products'));
+    }
+
+    public function addToCart(Request $request){
+        $productId = $request->get('product_id');
+        $quantity = $request->get('qty');
+        $product=UseProduct::find($productId);
+
+        if ($quantity <= 0) {
+            return redirect()->back()->withSuccess('Quantity must be greater than 0.');
+        }
+        if($request->isMethod('post')){
+            UseProduct::where('id', $productId)->decrement('pstock', $quantity);
+            $userId = Auth::guard('signup')->id();
+            $addtocart=new cart;
+            $addtocart->user_id = $userId;;
+            $addtocart->product_id=$productId;
+            $addtocart->quantity=$quantity;
+            $addtocart->save();
+        }
+        return redirect()->back()->with('success', 'Product added to cart.');
     }
 }
