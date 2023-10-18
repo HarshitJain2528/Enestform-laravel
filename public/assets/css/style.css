@@ -1548,9 +1548,16 @@ body{
     border-color: #c3e6cb; 
     color: #155724; 
     padding: 15px; 
-	float: right;
     border: 1px solid transparent;
-    border-radius: 4px; 
-    margin-bottom: 15px;
-	width: 400px; 
+    border-radius: 4px;
+	width: 150px; 
+	position: absolute;
+	top:200px;
 }
+.danger-alert {
+	background-color: #ff6b6b; /* Background color */
+	color: #fff; /* Text color */
+	border: 1px solid #ff0000; /* Border color */
+	padding: 10px; /* Padding inside the alert */
+	border-radius: 4px; /* Rounded corners */
+  }

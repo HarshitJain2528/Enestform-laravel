@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UseCategory;
 use App\Models\UseProduct;
+use App\Models\Login;
 use App\Models\cart;
 use App\Models\contact;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,6 @@ class ViewController extends Controller
         $category = UseCategory::where('id',$id)->get();
         $products=UseProduct::where('category_id',$id)->get();
         $allCategories = UseCategory::all();
-    
         return view('buynow', compact('category','products','allCategories'));
     }
     

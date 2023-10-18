@@ -14,11 +14,12 @@
 					<p>THE BIGGEST CHOICE OF THE WEB</p>
 				</div>
 				<div class="btn">
-					@if(!Auth::guard('signup')->check())
-						<a href="{{ route('login') }}"><input type="button" name="" value="Log in"></a>
-					@else
-						<a href="{{ route('logout') }}"><input type="button" name="" value="Log out"></a> 
-					@endif
+					
+						@if(!Auth::guard('signup')->check())
+							<a href="{{ route('login') }}"><input type="button" name="" value="Log in"></a>
+						@else
+							<a href="{{ route('logout') }}"><input type="button" name="" value="Log out : {{ Auth::guard('signup')->user()->fullname}}"></a> 
+						@endif
 				</div>
 			</div>
 		</div>
@@ -26,9 +27,7 @@
 			<div class="pagnation">
 				<div class="list">
 					<ul>
-						<li>HOME</li>
-						<li>NEW PROJECT</li>
-						<li>SPECIAL</li>
+						<a href="{{url('/')}}"><li>HOME</li></a>
 						<li>ALL PRODUCTS</li>
 						<li>REVIEWS</li>
 						<li>CONTACT</li>
