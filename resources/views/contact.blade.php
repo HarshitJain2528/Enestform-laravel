@@ -32,7 +32,8 @@
 						</div>
 						<div class="input-info">
 							<div class="input-information">
-								<form method="post">
+								<form method="post" action="{{Route('contact.us')}}">
+									{{ csrf_field() }}
 									<table class=" form">
 										<tr>
 											<td><p>full Name*</p></td>
@@ -47,7 +48,7 @@
 											<td><textarea name="me" required></textarea></td>
 										</tr>
 										<tr>
-											<td><input type="submit" value="Save" name="save"/></td>
+											<td><input type="submit" value="Save" name="save"></td>
 										</tr>
 									</table>
 								</form>

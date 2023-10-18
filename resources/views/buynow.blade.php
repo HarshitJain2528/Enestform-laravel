@@ -32,13 +32,16 @@
 			<div class="dish-info">
 				<div class="machine-pic">
 					<div class="img">
-						<img src="uploadimages/" />
+						<img src="{{ asset($product->product_image) }}" />
 					</div>
 					<div class="stock">
 						<p>In Stock: {{$product->pstock}}</p>
 					</div>
 				</div>
 				<div class="machine-info">
+					<div class="date">
+						<span>Date: {{ \Carbon\Carbon::now()->format('jS F Y') }}</span>
+					</div>
 					<div class="washer">
 						<p>{{$product->pname}}</p>
 					</div>

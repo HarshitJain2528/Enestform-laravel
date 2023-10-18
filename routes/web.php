@@ -21,6 +21,7 @@ Route::get('/contact',[ViewController::class,'contact']);
 Route::get('/buynow/{id}',[ViewController::class,'buynow']);
 Route::get('/addproduct/{id}', [ViewController::class,'addproduct']);
 Route::post('/addtocart',[ViewController::class,'addToCart'])->name('AddToCart');
+Route::post('/contact-us',[ViewController::class,'contact_us'])->name('contact.us');
 
 Route::post('/postRegistration',[AuthController::class,'postRegistration'])->name('signup.data');
 Route::post('/postLogin',[AuthController::class,'postLogin'])->name('login.data');

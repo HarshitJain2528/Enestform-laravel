@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\UseCategory;
 use App\Models\UseProduct;
 use App\Models\cart;
+use App\Models\contact;
 use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
@@ -41,7 +42,7 @@ class ViewController extends Controller
         $product=UseProduct::find($productId);
 
         if ($quantity <= 0) {
-            return redirect()->back()->withSuccess('Quantity must be greater than 0.');
+            return redirect()->back()->with('error','Quantity must be greater than 0.');
         }
         if($request->isMethod('post')){
             UseProduct::where('id', $productId)->decrement('pstock', $quantity);
@@ -53,5 +54,15 @@ class ViewController extends Controller
             $addtocart->save();
         }
         return redirect()->back()->with('success', 'Product added to cart.');
+    }
+    public function contact_us(Request $request){
+        $contact=new contact;
+        if($request->isMethod('post')){
+            $contact->fullname=$request->get('fn');
+            $contact->email=$request->get('ea');
+            $contact->message=$request->get('me');
+            $contact->save();
+        }
+        return redirect()->back()->with('success','Your message has been sent!'); 
     }
 }
