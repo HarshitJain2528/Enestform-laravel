@@ -12,23 +12,25 @@
 				<p>FEATURED PRODUCTS</p>
 			</div>
 			<div class="Camera-info">
-				<div class="samsung-cam">
-					<div class="cam-info">
-						<img src="uploadimages/">
-						<div class="sam-prc">
-							<span>{{--name--}}</span>
-							<p>{{--price--}}</p>
-						</div>
-						<hr class="hr2">
-						<div class="cart-btn">
-							<i class="fa fa-plus-circle" aria-hidden="true"></i>
-							<!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
-							<i class="fa fa-plus" aria-hidden="true"></i>
-							<i class="fa fa-cart-plus" aria-hidden="true"></i>
-							<input type="submit" name="" value="Add to cart">
+				@foreach ($products->random(6) as $product)
+					<div class="samsung-cam">
+						<div class="cam-info">
+							<img src="{{ asset($product->product_image) }}">
+							<div class="sam-prc">
+								<span>{{$product->pname}}</span>
+								<p>Rs. {{$product->pprice}}</p>
+							</div>
+							<hr class="hr2">
+							<div class="cart-btn">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i>
+								<!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
+								<i class="fa fa-plus" aria-hidden="true"></i>
+								<i class="fa fa-cart-plus" aria-hidden="true"></i>
+								<input type="submit" name="" value="Add to cart">
+							</div>
 						</div>
 					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>

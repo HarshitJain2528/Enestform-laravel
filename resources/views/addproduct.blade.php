@@ -10,7 +10,7 @@
 						<div class="dish-info">
 							<div class="machine-pic">
 								<div class="img">
-									<img src="uploadimages/" >
+									<img src="{{ asset($product->product_image) }}" >
 								</div>
 								<div class="stock">
 									<p>In Stock: {{$product->pstock}}</p>
@@ -34,7 +34,7 @@
 									<table>
 										<tr>
 											<td class="qty">Enter quantity</td>
-											<td><input type="text" name="qty"/></td>
+											<td><input type="number" name="qty"/></td>
 										</tr>
 									</table>
 									<div class="price">

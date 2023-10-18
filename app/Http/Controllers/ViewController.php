@@ -13,7 +13,8 @@ class ViewController extends Controller
 {
     public function index(){
         $allCategories=UseCategory::all();
-        return view('home',compact('allCategories'));
+        $products=UseProduct::all();
+        return view('home',compact('allCategories','products'));
     }
     public function login(){
         return view('login');
