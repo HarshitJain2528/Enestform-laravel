@@ -21,8 +21,11 @@ class ViewController extends Controller
         return view('login');
     }
     public function contact(){
-        $allCategories=UseCategory::all();
-        return view('contact',compact('allCategories'));
+        if(Auth::guard('signup')->check()){
+            $allCategories=UseCategory::all();
+            return view('contact',compact('allCategories'));
+        }
+        return redirect('login')->with('error','Login First');
     }
     public function buynow(Request $request, $id) {
         $category = UseCategory::where('id',$id)->get();

@@ -30,7 +30,7 @@
 						<a href="{{url('/')}}"><li>HOME</li></a>
 						<li>ALL PRODUCTS</li>
 						<li>REVIEWS</li>
-						<li>CONTACT</li>
+						<a href="{{url('contact')}}"><li>CONTACT</li></a>
 						<li>FAQS</li>
 					</ul>
 				</div>

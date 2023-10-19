@@ -1561,3 +1561,8 @@ body{
 	padding: 10px; 
 	border-radius: 4px; 
 }
+.error-message{
+	color:red;
+	font-size: 10px;
+	font-weight: bold;
+}

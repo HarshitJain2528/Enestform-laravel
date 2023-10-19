@@ -19,11 +19,19 @@
 						<table class="login-1">
 							<tr class="inpt">
 								<td><span>Username</span></td>
-								<td><input type="text" name="fullname"></td>
+								<td><input type="text" name="fullname" value="{{old('fullname')}}">
+									@error('fullname')
+										<div class="error-message">{{$message}}</div>
+									@enderror
+								</td>
 							</tr><br>
 							<tr class="inpt">
 								<td ><span>Password</span></td>
-								<td><input type="password" name="password"></td>
+								<td><input type="password" name="password">
+									@error('password')
+										<div class="error-message">{{$message}}</div>
+									@enderror
+								</td>
 							</tr>
 							<tr class="logn-btn" >
 								<td></td>
@@ -44,15 +52,27 @@
 					<table class="login-1">
 						<tr class="inpt-1">
 							<td ><span>Full Name</span></td>
-							<td><input type="text" name="name"></td>
+							<td><input type="text" name="name" >
+								@error('name')
+									<div class="error-message">{{$message}}</div>
+								@enderror
+							</td>
 						</tr><br>
 						<tr class="inpt-1">
 							<td ><span>Email</span></td>
-							<td><input type="text" name="email"></td>
+							<td><input type="text" name="email">
+								@error('email')
+									<div class="error-message">{{$message}}</div>
+								@enderror
+							</td>
 						</tr>
 						<tr class="inpt-1">
 							<td ><span>Password</span></td>
-							<td><input type="password" name="password"></td>
+							<td><input type="password" name="password">
+								@error('password')
+									<div class="error-message">{{$message}}</div>
+								@enderror
+							</td>
 						</tr>
 						<tr class="logn-btn" >
 							<td></td>
