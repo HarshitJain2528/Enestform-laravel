@@ -4,6 +4,10 @@
 		<span class="alert alert-success">
 			{{ session('success') }}
 		</span>
+	@elseif(session('error'))
+	<span class="danger-alert">
+		{{ session('success') }}
+	</span>
 	@endif	
 	<div class="footer">
 		@include('sidebar')

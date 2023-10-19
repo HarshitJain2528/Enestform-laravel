@@ -1,5 +1,14 @@
 @extends('layouts.main')
 @section('login')
+@if(session('success'))
+	<span class="alert alert-success">
+		{{session('success')}}
+	</span>
+@elseif (session('error'))
+	<span class="danger-alert">
+		{{session('error')}}
+	</span>
+@endif
 	<div class="footer">
 		<div class="login-here">
 			<div class="login">

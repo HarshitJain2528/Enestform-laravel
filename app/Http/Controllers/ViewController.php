@@ -49,12 +49,12 @@ class ViewController extends Controller
             UseProduct::where('id', $productId)->decrement('pstock', $quantity);
             $userId = Auth::guard('signup')->id();
             $addtocart=new cart;
-            $addtocart->user_id = $userId;;
+            $addtocart->user_id = $userId;
             $addtocart->product_id=$productId;
             $addtocart->quantity=$quantity;
             $addtocart->save();
         }
-        return redirect()->back()->with('success', 'Product added to cart.');
+        return redirect()->back()->with('success','Product added to cart.');
     }
     public function contact_us(Request $request){
         $contact=new contact;

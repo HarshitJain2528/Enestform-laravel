@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('home')
+@if(session('success'))
+	<span class="alert alert-success">
+		{{session('success')}}
+	</span>
+@endif
 	<div class="footer">
 		<div class="main-img">
 			<img src="{{asset('assets/images/16.png')}}">

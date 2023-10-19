@@ -18,9 +18,9 @@ class AuthController extends Controller
         $credentials = $request->only('fullname', 'password');
         if (Auth::guard('signup')->attempt($credentials)) {
             return redirect()->intended('/')
-                        ->withSuccess('You have Successfully loggedin');
+                        ->with('success','You have Successfully loggedin');
         }
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect()->back()->with('error','Oppes! You have entered invalid credentials');
     }
 
     public function postRegistration(Request $request){
@@ -37,7 +37,7 @@ class AuthController extends Controller
             $register->password=Hash::make($request->get('password'));
             $register->save();
         }
-        return redirect('/')->withSuccess('Great! You have Successfully loggedin');
+        return redirect()->back()->with('success','Great! You have Successfully signed up,Now Please Login');
     }
 
     public function logout() {
