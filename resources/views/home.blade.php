@@ -28,7 +28,6 @@
 							<hr class="hr2">
 							<div class="cart-btn">
 								<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
 								<i class="fa fa-plus" aria-hidden="true"></i>
 								<i class="fa fa-cart-plus" aria-hidden="true"></i>
 								<input type="submit" name="" value="Add to cart">
