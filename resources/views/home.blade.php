@@ -17,7 +17,7 @@
 				<p>FEATURED PRODUCTS</p>
 			</div>
 			<div class="Camera-info">
-				@foreach ($products->random(6) as $product)
+				@foreach ($products as $product)
 					<div class="samsung-cam">
 						<div class="cam-info">
 							<img src="{{ asset($product->product_image) }}">
@@ -28,7 +28,6 @@
 							<hr class="hr2">
 							<div class="cart-btn">
 								<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
 								<i class="fa fa-plus" aria-hidden="true"></i>
 								<i class="fa fa-cart-plus" aria-hidden="true"></i>
 								<input type="submit" name="" value="Add to cart">
