@@ -38,23 +38,23 @@
 							<p>Description:{{$product->pdesc}}</p>
 						</div>
 						<div class="quantity">
-						<form method="post" action="{{Route('AddToCart')}}">
-							{{ csrf_field() }}
-							<table>
-								<tr>
-									<td class="qty">Enter quantity</td>
-									<td><input type="number" name="qty"/></td>
-								</tr>
-							</table>
-							<div class="price">
-								<span>Rs. {{$product->pprice}}</span>
-							</div>
+							<form method="post" action="{{Route('AddToCart')}}">
+								{{ csrf_field() }}
+								<table>
+									<tr>
+										<td class="qty">Enter quantity</td>
+										<td><input type="number" name="qty"/></td>
+									</tr>
+								</table>
+								<div class="price">
+									<span>Rs. {{$product->pprice}}</span>
+								</div>
+								<div class="cart">
+									<input type="hidden" name="product_id" value="{{ $product->id }}">
+									<input type="submit" name="add" value="Add to Cart">
+								</div>
+							</form>
 						</div>
-						<div class="cart">
-							<input type="hidden" name="product_id" value="{{ $product->id }}">
-							<input type="submit" name="add" value="Add to Cart">
-						</div>
-						</form>
 						<div class="checkout">
 							<input type="submit" name="" value="checkout">
 						</div>
