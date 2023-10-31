@@ -1,3 +1,4 @@
+            {{-- Footer Section --}}
             <div class="footer-1">
                 <div class="list-1">
                     <ul>
@@ -14,7 +15,10 @@
                     <p>Copyright <i class="fa fa-copyright" aria-hidden="true"></i>2013 Enest.Privacy Notice</p>
                 </div>
             </div>
+            {{-- Footer Section Ends --}}
         </div>
+        {{-- Main categories section ends--}}
     </div>
+    {{-- End of the main container --}}
 </body>
 </html>
