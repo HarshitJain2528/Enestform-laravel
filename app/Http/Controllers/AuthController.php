@@ -16,7 +16,8 @@ class AuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function postLogin(Request $request){
+    public function postLogin(Request $request)
+    {
         // Validate the input fields
         $request->validate([
             'fullname' => 'required',
@@ -42,7 +43,8 @@ class AuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function postRegistration(Request $request){
+    public function postRegistration(Request $request)
+    {
         // Validate registration input fields
         $request->validate([
             'name' => 'required',
@@ -53,7 +55,7 @@ class AuthController extends Controller
         // Create a new Login model instance for registration
         $register = new Login;
 
-        if($request->isMethod('post')){
+        if($request->isMethod('post')) {
             // Set user data for registration
             $register->fullname = $request->get('name');
             $register->email = $request->get('email');
@@ -69,7 +71,8 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function logout() {
+    public function logout() 
+    {
         // Clear the user session and log them out
         Session::flush();
         Auth::logout();
