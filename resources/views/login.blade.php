@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-<div class "sign-up">
+<div class="sign-up">
     <div class="sign">
         <p>New to Enest? <a href=""> Sign up</a></p>
         <div  class="user-info">

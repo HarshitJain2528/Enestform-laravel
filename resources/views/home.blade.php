@@ -20,7 +20,7 @@
         </div>
 
         <div class="Camera-info">
-            @foreach ($products as $product)
+            @foreach ($products->random(6) as $product)
                 <div class="samsung-cam">
                     <div class="cam-info">
                         <img src="{{ asset($product->product_image) }}"> {{-- Display the product image --}}
